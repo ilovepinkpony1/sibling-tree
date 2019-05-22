@@ -3,11 +3,11 @@
 let list = document.querySelector('.tree');
 
 list.addEventListener('click', event => {
-if(event.target.parentNode.childNodes.length > 1) {
-    if (event.target.parentNode.childNodes[1].style.display === 'none') {
-      event.target.parentNode.childNodes[1].style.display = 'block';
-    } else {
-      event.target.parentNode.childNodes[1].style.display = 'none';
-    }
-} 
-})
+if (event.target.tagName === 'SPAN') {
+    event.target.parentNode.childNodes.forEach(el => {
+      if(el.tagName === 'UL') {
+        el.hidden = !el.hidden;
+      }
+    });
+  }
+});
